@@ -7,5 +7,6 @@ GitHub applies files in this special `.github` repository as **defaults** to eve
 repository on the account that does not provide its own. Currently:
 
 - **[SECURITY.md](SECURITY.md)** — how to report a security vulnerability.
+- **[FUNDING.yml](FUNDING.yml)** — the Sponsor button, linking to [Ko-fi](https://ko-fi.com/sudarshanchaudhari).
 
 Individual repositories can override any of these by including their own copy.
