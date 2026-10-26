@@ -1,0 +1,18 @@
+name: Review finding
+description: Found during code review
+labels: [review-finding]
+body:
+  - type: input
+    id: pr
+    attributes:
+      label: Found in PR
+      placeholder: "#12"
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: Finding
+      description: File, line and what is wrong.
+    validations:
+      required: true
