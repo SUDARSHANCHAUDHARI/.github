@@ -12,14 +12,20 @@
   "packageRules": [
     {
       "description": "Patch, pin and digest updates land on their own.",
-      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true,
       "automergeType": "pr",
       "dependencyDashboardApproval": false
     },
     {
       "description": "Minor updates land on their own, except on 0.x where a minor is breaking.",
-      "matchUpdateTypes": ["minor"],
+      "matchUpdateTypes": [
+        "minor"
+      ],
       "matchCurrentVersion": "!/^0/",
       "automerge": true,
       "automergeType": "pr",
@@ -27,14 +33,15 @@
     },
     {
       "description": "Majors always wait for a human.",
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": [
+        "major"
+      ],
       "automerge": false,
       "dependencyDashboardApproval": true
     }
   ],
   "vulnerabilityAlerts": {
-    "description": "Security fixes bypass the dashboard; patch and minor still automerge, majors do not.",
-    "minimumReleaseAge": null,
+    "description": "Security fixes skip dashboard approval but keep the 3 day cooldown: a compromised release needs a detection window. supply-chain-check flags anything under 72h.",
     "dependencyDashboardApproval": false
   }
 }
