@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared Renovate preset for SUDARSHANCHAUDHARI repos. Extend with \"github>SUDARSHANCHAUDHARI/.github\".",
+  "extends": [
+    "config:recommended"
+  ],
+  "minimumReleaseAge": "3 days",
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": true,
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "packageRules": [
+    {
+      "description": "Patch, pin and digest updates land on their own.",
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "pr",
+      "dependencyDashboardApproval": false
+    },
+    {
+      "description": "Minor updates land on their own, except on 0.x where a minor is breaking.",
+      "matchUpdateTypes": ["minor"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "automergeType": "pr",
+      "dependencyDashboardApproval": false
+    },
+    {
+      "description": "Majors always wait for a human.",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "dependencyDashboardApproval": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "description": "Security fixes bypass the dashboard; patch and minor still automerge, majors do not.",
+    "minimumReleaseAge": null,
+    "dependencyDashboardApproval": false
+  }
+}
